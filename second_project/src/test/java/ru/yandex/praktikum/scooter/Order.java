@@ -9,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 import ru.yandex.praktikum.scooter.pages.MainPage;
 import ru.yandex.praktikum.scooter.pages.OrderPage;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(Parameterized.class)
 public class Order {
@@ -61,7 +61,7 @@ public class Order {
         orderPage.fillingFormForWhom(name, surname, address, metroStation, phone);
         orderPage.fillingFormAboutRent(data, time, color, comment);
 
-        assertEquals(true, orderPage.findElementOrderPass());
+        assertTrue(orderPage.findElementOrderPass());
     }
 
     @Test
@@ -69,7 +69,7 @@ public class Order {
         MainPage mainPage = new MainPage(driver);
         mainPage.clickButtonOrderUp();
         OrderPage orderPage = new OrderPage(driver);
-        assertEquals(true, orderPage.checkOpenOrderPage());
+        assertTrue(orderPage.checkOpenOrderPage());
     }
 
     @Test
@@ -77,7 +77,7 @@ public class Order {
         MainPage mainPage = new MainPage(driver);
         mainPage.clickButtonOrderDown();
         OrderPage orderPage = new OrderPage(driver);
-        assertEquals(true, orderPage.checkOpenOrderPage());
+        assertTrue(orderPage.checkOpenOrderPage());
     }
 
     @After
